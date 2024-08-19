@@ -1,3 +1,4 @@
+//login.jsx
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +17,8 @@ const Login = () => {
         email,
         password,
       });
-      login(response.data.token);
+      const { token, userId } = response.data;
+      login(token, userId);
       navigate("/");
     } catch (error) {
       console.log("login failed:", error);
