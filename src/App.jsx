@@ -5,8 +5,10 @@ import Home from "./pages/Home.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import PostPage from "./pages/PostPage.jsx";
+import axios from "axios";
 
 function App() {
+  const [username, setUsername] = useState("");
   return (
     <div>
       <Navbar />
