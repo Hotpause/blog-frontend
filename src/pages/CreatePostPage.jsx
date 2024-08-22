@@ -13,14 +13,15 @@ const CreatePostPage = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const userId = localStorage.getItem("userId"); // Get the userId from localStorage
+      const userId = localStorage.getItem("userId");
+      console.log("userId:", userId);
 
       const response = await axios.post(
         "http://localhost:3000/posts",
         {
           title,
           content,
-          authorId: userId,
+          authorId: parseInt(userId),
           published,
         },
         {

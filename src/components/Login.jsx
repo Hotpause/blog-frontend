@@ -17,8 +17,8 @@ const Login = () => {
         email,
         password,
       });
-      const { token, userId } = response.data;
-      login(token, userId);
+      const { token, userId, username } = response.data;
+      login(token, userId, username);
       navigate("/");
     } catch (error) {
       console.log("login failed:", error);
