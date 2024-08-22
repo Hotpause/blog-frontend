@@ -1,4 +1,3 @@
-//postlist.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -25,14 +24,19 @@ const PostList = () => {
 
   return (
     <div>
-      <h2>Post List</h2>
+      <h2 className="text-2xl font-semibold mb-4">Post List</h2>
       {posts.length === 0 ? (
-        <p>No posts available</p>
+        <p className="text-gray-400">No posts available</p>
       ) : (
-        <ul>
+        <ul className="space-y-2">
           {posts.map((post) => (
             <li key={post.id}>
-              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+              <Link
+                to={`/posts/${post.id}`}
+                className="text-purple-400 hover:text-purple-600"
+              >
+                {post.title}
+              </Link>
             </li>
           ))}
         </ul>

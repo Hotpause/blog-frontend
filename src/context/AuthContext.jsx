@@ -22,6 +22,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("userId", userId);
     setIsAuthenticated(true);
     setUser({ id: userId, username });
+    console.log("username:", username);
   };
 
   const logout = () => {

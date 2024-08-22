@@ -45,14 +45,13 @@ function PostPage() {
   }, [postId]);
 
   const handleCommentAdded = () => {
-    // Refresh comments after adding a new one
     fetchComments();
   };
 
   if (!post) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="container mx-auto p-4">
       <Post post={post} />
       <Comments
         comments={comments}

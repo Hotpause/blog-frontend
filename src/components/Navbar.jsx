@@ -1,4 +1,3 @@
-//navbar.jsx
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
@@ -9,20 +8,38 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login"); // Redirect to login after logout
+    navigate("/login");
   };
 
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      {!isAuthenticated ? (
-        <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-        </>
-      ) : (
-        <button onClick={handleLogout}>Logout</button>
-      )}
+    <nav className="bg-gray-800 p-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to="/" className="text-xl text-white font-semibold">
+          Blog
+        </Link>
+        <div>
+          {!isAuthenticated ? (
+            <>
+              <Link
+                to="/login"
+                className="text-white hover:text-purple-400 mr-4"
+              >
+                Login
+              </Link>
+              <Link to="/signup" className="text-white hover:text-purple-400">
+                Signup
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="text-white bg-purple-600 hover:bg-purple-700 py-2 px-4 rounded"
+            >
+              Logout
+            </button>
+          )}
+        </div>
+      </div>
     </nav>
   );
 };

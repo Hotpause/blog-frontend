@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-900 min-h-screen text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

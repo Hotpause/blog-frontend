@@ -20,8 +20,8 @@ const Signup = () => {
 
       if (response.status === 200) {
         const { token } = response.data;
-        localStorage.setItem("token", token); // Save token in localStorage
-        navigate("/login"); // Navigate to login page after successful signup
+        localStorage.setItem("token", token);
+        navigate("/login");
       }
     } catch (error) {
       console.error("Signup failed:", error);
@@ -30,38 +30,46 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div className="max-w-md mx-auto mt-10 p-6 bg-gray-800 rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold mb-4 text-white">Signup</h2>
+      {error && <p className="text-red-500">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+        <div className="mb-4">
+          <label className="block text-gray-400">Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            className="w-full p-2 bg-gray-700 text-white rounded-md"
           />
         </div>
-        <div>
-          <label>Username:</label>
+        <div className="mb-4">
+          <label className="block text-gray-400">Username:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            className="w-full p-2 bg-gray-700 text-white rounded-md"
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="mb-4">
+          <label className="block text-gray-400">Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className="w-full p-2 bg-gray-700 text-white rounded-md"
           />
         </div>
-        <button type="submit">Signup</button>
+        <button
+          type="submit"
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md"
+        >
+          Signup
+        </button>
       </form>
     </div>
   );
